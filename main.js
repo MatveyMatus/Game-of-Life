@@ -14,7 +14,7 @@ canvas.onclick = function(event){
 }
 //создание поля
 function goLife(){
-	let n = 30, m = 30;
+	let n = 100, m = 100;
 	for (let i = 0; i < m; ++i){
 		mas[i]=[];
 		for (let j = 0; j < n; ++j){
@@ -26,9 +26,9 @@ goLife();
 
 //отрисовка клеток
 function draw(){
-	ctx.clearRect(0, 0, 300, 300);
-	for (let i = 0; i < 30; ++i){
-		for (let j = 0; j < 30; ++j){
+	ctx.clearRect(0, 0, 1000, 1000);
+	for (let i = 0; i < 100; ++i){
+		for (let j = 0; j < 100; ++j){
 			if (mas[i][j] == 1){
 				ctx.fillRect(j*10, i*10, 10, 10);				
 			}
@@ -39,9 +39,9 @@ function draw(){
 //аналог жизни клетки
 function startLife(){
 	let mas2 = [];
-	for (let i = 0; i < 30; ++i){
+	for (let i = 0; i < 100; ++i){
 		mas2[i]=[];
-		for (let j = 0; j < 30; ++j){
+		for (let j = 0; j < 100; ++j){
 			let neighbors = 0;
 			//соседка сверху
 			if (mas[infField1(i)-1][j] == 1)
@@ -83,12 +83,12 @@ function startLife(){
 //реализация беконечного поля
 function infField1(i){
 	if (i == 0)
-		return 30
+		return 100
 	else
 		return i
 }
 function infField2(i){
-	if (i == 29)
+	if (i == 99)
 		return -1
 	else
 		return i
